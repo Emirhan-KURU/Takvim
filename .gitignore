@@ -1,52 +1,36 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int main(){
+    int fd,td,i,j; //fd = first day , td = total day , j = gunun sayisal degeri
+    system("COLOR F0");
+    printf("(0)Pazartesi (1)Sali (2)Carsamba (3)Persembe (4)Cuma (5)Cumartesi (6)Pazar\n");
+    printf("Ayin ilk gununu girin:\t"),scanf("%d",&fd);
+    printf("Ay kac gun cekiyor:\t"),scanf("%d",&td);
+    printf("\nPts Sal Car Per Cum Cts Paz\n");
 
-# Linker output
-*.ilk
-*.map
-*.exp
+    for(i=1;i<=fd;i++) 
+        printf("    ");
 
-# Precompiled Headers
-*.gch
-*.pch
+    printf("  "); 
+                  
+    for(i=0,j=1;i<=6-fd;i++,j++){ 
+        printf("%d",j);          
+        printf("   ");}
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+    printf("\n");
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+    while(j<=td){                          
+        for(i=0;i<=6;i++,j++){              
+            if(j<10){                   
+                printf("  ");            
+                printf("%d",j);        
+                printf(" ");}             
+            else if(j<=td && j>=10){     
+                printf(" ");            
+                printf("%d",j);
+                printf(" ");}}
+        printf("\n");}
+        main();
+    return 0;}
